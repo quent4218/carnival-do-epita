@@ -9,7 +9,7 @@ use Hackathon\Game\Result;
  * @author Robin
  *
  */
-class quent4218Player extends Player
+class Quent4218Player extends Player
 {
     protected $mySide;
     protected $opponentSide;
@@ -40,7 +40,15 @@ class quent4218Player extends Player
         // -------------------------------------    -----------------------------------------------------
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
-
-        return parent::paperChoice();
+        $lastchoice = $this->result->getLastChoiceFor($this->opponentSide);
+        if($lastchoice != 0 && $lastchoice == parent::paperChoice())
+        {
+          return parent::paperChoice();
+        }
+        elseif ($lastchoice != 0 && $lastchoice == parent::rockChoice())
+        {
+          return parent::rockChoice();
+        }
+        return parent::scissorsChoice();
   }
 };
