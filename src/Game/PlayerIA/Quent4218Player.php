@@ -57,7 +57,18 @@ class Quent4218Player extends Player
           return parent::paperChoice();
         }*/
 
-
+        // si il le joue moins il va peut-être pas le jouer du coup
+        $min = min( $this->result->getStatsFor($this->opponentSide));
+        if($min == "paper")
+        {
+          return parent::paperChoice();
+        }
+        elseif ($min == "rock")
+        {
+          return parent::rockChoice();
+        }
+        return parent::scissorsChoice();
+/*
          $myScore = $this->result->getLastScoreFor($this->mySide);
 
         //si il fait égalité il va vouloir changer en penser que je vais changer
@@ -70,5 +81,6 @@ class Quent4218Player extends Player
           return parent::rockChoice();
         }
         return parent::scissorsChoice();
+        */
   }
 };
