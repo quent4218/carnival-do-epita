@@ -41,14 +41,15 @@ class Quent4218Player extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
         $lastchoice = $this->result->getLastChoiceFor($this->opponentSide);
+
         if($lastchoice != 0 && $lastchoice == parent::paperChoice())
         {
-          return parent::paperChoice();
+          return parent::scissorsChoice();
         }
         elseif ($lastchoice != 0 && $lastchoice == parent::rockChoice())
         {
-          return parent::rockChoice();
+          return parent::paperChoice();
         }
-        return parent::scissorsChoice();
+        return parent::rockChoice();
   }
 };
