@@ -42,6 +42,25 @@ class Quent4218Player extends Player
         // -------------------------------------    -----------------------------------------------------
         $lastchoice = $this->result->getLastChoiceFor($this->opponentSide);
         //var_dump($this->result->getStatsFor($this->opponentSide));
+        $stat = $this->result->getStatsFor($this->opponentSide);
+
+        /*if ($stat[1]> 0)
+        {
+          return parent::rockChoice();
+        }
+        if ($stat[2]> 0)
+        {
+          return parent::scissorsChoice();
+        }
+        if ($stat[3]> 0)
+        {
+          return parent::paperChoice();
+        }*/
+
+        
+
+
+        //if he played once he will try to change
         if($lastchoice != 0 && $lastchoice == parent::paperChoice())
         {
           return parent::paperChoice();
