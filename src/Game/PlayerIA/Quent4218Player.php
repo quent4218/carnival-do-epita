@@ -57,15 +57,15 @@ class Quent4218Player extends Player
           return parent::paperChoice();
         }*/
 
-        
 
+         $myScore = $this->result->getLastScoreFor($this->mySide);
 
-        //if he played once he will try to change
-        if($lastchoice != 0 && $lastchoice == parent::paperChoice())
+        //si il fait égalité il va vouloir changer en penser que je vais changer
+        if($myScore == 1 && $lastchoice == parent::paperChoice())
         {
           return parent::paperChoice();
         }
-        elseif ($lastchoice != 0 && $lastchoice == parent::rockChoice())
+        elseif ($myScore == 1 && $lastchoice == parent::rockChoice())
         {
           return parent::rockChoice();
         }
